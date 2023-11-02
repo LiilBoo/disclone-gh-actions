@@ -5,7 +5,7 @@
 # https://github.com/oven-sh/setup-bun
 
 # Resources used:
-# - https://medium.com/chrisrbailey/github-actions-using-postgres-postgis-and-psql-e920a2aea7e1
+# - https://remarkablemark.org/blog/2021/03/14/setup-postgresql-in-github-actions/
 
 name: APPROVED_PR::testing::ds_auth
 
@@ -46,7 +46,7 @@ jobs:
       sudo apt-get install --yes postgresql-client
    - name: "step 1 2/2 - seeding the database"
    # directory context important to find the --file
-     working-directory: "db"
+     working-directory: "apps/db"
      # needed env for psql #could also do: export PGPASSWORD=password or PGPASSWORD=password psql --host....
      env:
       PGPASSWORD: password
@@ -57,10 +57,10 @@ jobs:
      with:
       bun-version: latest
    - name: "step 3 - installing dependencies"
-     working-directory: "."
+     working-directory: "apps/ds_auth"
      run: bun install
    - name: "step 4 - run bun test"
-     working-directory: "."
+     working-directory: "apps/ds_auth"
      #.env.test will not be found because it's specified in the .gitignore, it's never moved to the runner
      run: |
       export NODE_ENV=development
