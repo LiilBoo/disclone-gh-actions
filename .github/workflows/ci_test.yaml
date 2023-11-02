@@ -10,6 +10,7 @@
 name: testing::disclone/apps/ds_auth
 
 on:
+ workflow_dispatch:
  push:
   branches: [main]
  pull_request_review:
@@ -107,7 +108,7 @@ env:
  # The hostname used to communicate with the PostgreSQL service container
  POSTGRES_HOST: coruscant_db
  # The default PostgreSQL port
- POSTGRES_PORT: ${{ jobs.services.coruscant_db.ports[5432] }}
+ POSTGRES_PORT: 5432
  # the database we're talking to
  POSTGRES_DB: disclone
  # the database user running commands
