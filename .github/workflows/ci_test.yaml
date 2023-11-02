@@ -103,7 +103,7 @@ jobs:
       export POSTGRES_USER=ds_auth
       export POSTGRES_PASSWORD=password
       export PASSWORD_PEPPER=pepper
-      bun run test
+      bun test
 env:
  # The hostname used to communicate with the PostgreSQL service container
  POSTGRES_HOST: coruscant_db

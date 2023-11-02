@@ -45,7 +45,7 @@ jobs:
    - name: copy code into runner
      # official github action => copy repository's code into runner
      uses: actions/checkout@v3
-     id: some id
+     id: someid
    - name: setting-up bun
      # official bun action => sets up bun
      uses: oven-sh/setup-bun@v1
@@ -68,7 +68,7 @@ jobs:
      run: |
       psql -h coruscant_db -U ds_auth -p 5432 -d disclone && \i  init_ds_auth.sql && \q
    - name: run the goddamn tests for ds_auth
-     run: bun run test
+     run: bun test
 env:
  # The hostname used to communicate with the PostgreSQL service container
  POSTGRES_HOST: coruscant_db
