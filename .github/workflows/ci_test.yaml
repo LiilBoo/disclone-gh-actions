@@ -59,7 +59,6 @@ jobs:
    - name: "step 3 3/3 - seeding the son of b*tch "
      working-directory: "db"
      # needed env for psql #could also do: export PGPASSWORD=password or PGPASSWORD=password psql --host....
-     # --host localhost didn't work because it was trying to connect via IPv6 (::1) and not IPv4
      env:
       PGPASSWORD: password
      run: |
