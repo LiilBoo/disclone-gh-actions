@@ -34,7 +34,7 @@ jobs:
      POSTGRES_DB: disclone
      POSTGRES_USER: ds_auth
     volumes:
-     - "./db/init_ds_auth.sql:/docker-entrypoint-initdb.d/1.sql"
+     - "./db/init_ds_auth.sql:/docker-entrypoint-initdb.d/"
     # Set health checks to wait until postgres has started
     options: >-
      --health-cmd pg_isready
