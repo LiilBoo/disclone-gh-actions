@@ -63,10 +63,9 @@ jobs:
      env:
       PGPASSWORD: password
      run: |
-      psql --host 0.0.0.0 --username ds_auth --port 5432 --dbname disclone
-      \i init_ds_auth.sql
+      psql --host localhost --username ds_auth --port 5432 --dbname disclone --file init_ds_auth.sql --echo-all --echo-errors --echo-queries
+  # psql --host 0.0.0.0 --username ds_auth --port 5432 --dbname disclone && \i init_ds_auth.sql
      # \i init_ds_auth.sql
-   # psql --host localhost --username ds_auth --port 5432 --dbname disclone --file init_ds_auth.sql --echo-all --echo-errors --echo-queries
    ########### test docker image first and try this if it doesn't work
    #  # installing postgresql-client aka psql
    #  - run: |
