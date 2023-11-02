@@ -64,8 +64,8 @@ jobs:
       PGPASSWORD: password
      run: |
       psql --host localhost --username ds_auth --port 5432 --dbname disclone --file init_ds_auth.sql --echo-all --echo-errors --echo-queries
-  # psql --host 0.0.0.0 --username ds_auth --port 5432 --dbname disclone && \i init_ds_auth.sql
      # \i init_ds_auth.sql
+   # psql --host 0.0.0.0 --username ds_auth --port 5432 --dbname disclone && \i init_ds_auth.sql
    ########### test docker image first and try this if it doesn't work
    #  # installing postgresql-client aka psql
    #  - run: |
@@ -85,10 +85,10 @@ jobs:
      with:
       bun-version: latest
    - name: "step 3 - installing dependencies"
-     working-directory: "./apps/ds_auth"
+     working-directory: "."
      run: bun install
-   - name: "step 4 - run bun test"
-     working-directory: "./apps/ds_auth"
+   - name: "step 4 - run: bun test"
+     working-directory: "."
      #.env.test will not be found because it's specified in the .gitignore, it's never moved to the runner
      run: |
       export NODE_ENV=development
