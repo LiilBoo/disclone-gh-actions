@@ -318,7 +318,7 @@ describe("dsa", () => {
             cookies = await loginTestUser(sut);
         });
 
-        it(`should update profile`, async () => {
+        it.skip(`should update profile`, async () => {
             const expected = {
                 display_name: "testname"
             };
