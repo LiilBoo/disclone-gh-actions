@@ -18,13 +18,4 @@ on:
 jobs:
  approved:
   # if: github.event.review.state == 'APPROVED'
-  runs-on: ubuntu-latest
-  steps:
-    - name: "step 1 - copy code into the github action runner"
-      # official github action => copy repository's code into runner
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 2
-      id: some_id
-    - name: "reuse ci and run tests"
-      uses: ./.github/workflows/ci_test.yaml
+  uses: ./.github/workflows/ci_test.yaml
